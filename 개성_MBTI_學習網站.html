@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇰🇷 한국어 모임｜개성 & MBTI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:    #FF6B9D;
+  --pink-l:  #FFE0EF;
+  --pink-d:  #C92B6A;
+  --blue:    #5B9BD5;
+  --blue-l:  #E6F1FB;
+  --teal:    #1D9E75;
+  --teal-l:  #E1F5EE;
+  --purple:  #9B72CF;
+  --purple-l:#EEEDFE;
+  --amber:   #E0A020;
+  --amber-l: #FEF6E4;
+  --red:     #E74C3C;
+  --red-l:   #FDEDEC;
+  --green:   #27AE60;
+  --green-l: #D5F5E3;
+  --ink:     #1A1A2E;
+  --muted:   #6B7280;
+  --border:  #E5E7EB;
+  --bg:      #FAFAFA;
+  --white:   #FFFFFF;
+  --radius:  12px;
+  --shadow:  0 2px 12px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+  color: white;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255,107,157,0.15) 0%, transparent 60%),
+              radial-gradient(circle at 80% 30%, rgba(91,155,213,0.12) 0%, transparent 50%);
+}
+.hero-flag { font-size: 2.5rem; margin-bottom: 0.5rem; position: relative; }
+.hero-kr {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  position: relative;
+}
+.hero-kr span { color: var(--pink); }
+.hero-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.4rem;
+  position: relative;
+}
+.hero-pills {
+  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+  margin-top: 1.2rem; position: relative;
+}
+.hero-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.85);
+  border-radius: 100px;
+  padding: 4px 14px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.hero-pill.accent { background: var(--pink); border-color: var(--pink); color: white; }
+
+/* ── NAV TABS ── */
+.nav-wrap {
+  position: sticky; top: 0; z-index: 100;
+  background: white;
+  border-bottom: 1.5px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.nav {
+  display: flex; overflow-x: auto; gap: 0;
+  scrollbar-width: none;
+  max-width: 900px; margin: 0 auto;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  flex-shrink: 0;
+  padding: 0.8rem 1.1rem;
+  border: none; background: none; cursor: pointer;
+  font-family: inherit; font-size: 0.82rem; font-weight: 500;
+  color: var(--muted);
+  border-bottom: 2.5px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 5px;
+}
+.nav-btn:hover { color: var(--ink); }
+.nav-btn.active { color: var(--pink); border-bottom-color: var(--pink); }
+
+/* ── SECTIONS ── */
+.main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── SECTION HEADER ── */
+.sec-header {
+  display: flex; align-items: flex-start; gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.sec-icon {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.sec-title { font-size: 1.3rem; font-weight: 700; line-height: 1.2; }
+.sec-desc { font-size: 0.85rem; color: var(--muted); margin-top: 3px; }
+
+/* ── CARDS ── */
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+.card-title {
+  font-size: 0.88rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 6px;
+}
+.card-title::before {
+  content: ''; display: inline-block;
+  width: 3px; height: 14px; border-radius: 2px;
+}
+
+/* ── LEVEL BADGES ── */
+.lv {
+  display: inline-block;
+  font-size: 0.68rem; font-weight: 700;
+  padding: 2px 7px; border-radius: 100px;
+  letter-spacing: 0.03em; flex-shrink: 0;
+}
+.lv-a1 { background: #DCFCE7; color: #166534; }
+.lv-a2 { background: #FEF9C3; color: #854D0E; }
+.lv-b1 { background: #FED7AA; color: #9A3412; }
+.lv-b2 { background: #FECACA; color: #991B1B; }
+
+/* ── VOCAB GRID ── */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+.vocab-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: white;
+  display: flex; flex-direction: column; gap: 2px;
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: default;
+  position: relative;
+}
+.vocab-item:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.vocab-kr { font-size: 1rem; font-weight: 700; color: var(--ink); }
+.vocab-zh { font-size: 0.8rem; color: var(--muted); }
+.vocab-lv { position: absolute; top: 8px; right: 8px; }
+
+/* ── MATCHING GAME ── */
+.match-container {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.match-col { display: flex; flex-direction: column; gap: 6px; }
+.match-item {
+  padding: 10px 14px; border-radius: 10px;
+  border: 1.5px solid var(--border);
+  cursor: pointer; font-size: 0.88rem;
+  transition: all 0.15s; user-select: none;
+  background: white;
+}
+.match-item:hover { border-color: var(--pink); background: var(--pink-l); }
+.match-item.selected { border-color: var(--pink); background: var(--pink-l); color: var(--pink-d); font-weight: 600; }
+.match-item.correct { border-color: var(--teal); background: var(--teal-l); color: #085041; font-weight: 600; }
+.match-item.wrong { border-color: var(--red); background: var(--red-l); color: #922B21; }
+.match-item.disabled { opacity: 0.4; pointer-events: none; }
+.match-score {
+  text-align: center; padding: 0.6rem;
+  font-size: 0.85rem; color: var(--muted);
+  font-weight: 500;
+}
+.match-btn {
+  display: block; margin: 0.5rem auto 0;
+  padding: 8px 24px; border-radius: 100px;
+  border: none; cursor: pointer;
+  font-family: inherit; font-size: 0.85rem; font-weight: 600;
+  background: var(--pink); color: white;
+  transition: opacity 0.15s;
+}
+.match-btn:hover { opacity: 0.85; }
+
+/* ── FILL IN BLANK ── */
+.fill-table { width: 100%; border-collapse: collapse; }
+.fill-table th, .fill-table td {
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border); font-size: 0.9rem;
+}
+.fill-table th { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.fill-input {
+  border: none; border-bottom: 2px solid var(--border);
+  background: transparent; font-family: inherit; font-size: 0.9rem;
+  width: 100%; outline: none; padding: 2px 4px;
+  transition: border-color 0.15s; color: var(--ink);
+}
+.fill-input:focus { border-color: var(--pink); }
+.fill-input.correct { border-color: var(--teal); color: #085041; }
+.fill-input.wrong { border-color: var(--red); color: #922B21; }
+.fill-check-btn {
+  margin-top: 0.8rem;
+  padding: 8px 20px; border-radius: 100px;
+  border: 1.5px solid var(--pink); background: white;
+  color: var(--pink); cursor: pointer;
+  font-family: inherit; font-size: 0.85rem; font-weight: 600;
+  transition: all 0.15s;
+}
+.fill-check-btn:hover { background: var(--pink); color: white; }
+
+/* ── MBTI TILES ── */
+.mbti-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  margin-bottom: 1.2rem;
+}
+.mbti-tile {
+  border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 12px 10px; text-align: center; cursor: pointer;
+  transition: all 0.15s; background: white;
+}
+.mbti-tile:hover { border-color: var(--purple); background: var(--purple-l); }
+.mbti-tile.active { border-color: var(--purple); background: var(--purple-l); }
+.mbti-code { font-size: 1rem; font-weight: 700; color: var(--purple); }
+.mbti-kr { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+.mbti-example {
+  display: none; background: var(--purple-l);
+  border: 1px solid #CECBF6; border-radius: 10px;
+  padding: 1rem 1.2rem; margin-top: 0.5rem;
+  animation: fadeIn 0.2s ease;
+}
+.mbti-example.active { display: block; }
+.mbti-ex-kr { font-size: 1rem; font-weight: 600; color: #3C3489; line-height: 1.5; }
+.mbti-ex-zh { font-size: 0.85rem; color: #534AB7; margin-top: 4px; }
+
+/* ── AXIS CHART ── */
+.axis-tabs { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; }
+.axis-tab {
+  padding: 5px 14px; border-radius: 100px;
+  border: 1.5px solid var(--border); background: white;
+  cursor: pointer; font-family: inherit;
+  font-size: 0.82rem; font-weight: 600; color: var(--muted);
+  transition: all 0.15s;
+}
+.axis-tab.active { background: var(--purple); border-color: var(--purple); color: white; }
+.axis-wrap {
+  display: grid;
+  grid-template-columns: 36px 1fr 1fr;
+  grid-template-rows: auto 36px auto;
+  gap: 0; position: relative;
+}
+.axis-q {
+  border: 1px solid var(--border); border-radius: 0;
+  padding: 14px; min-height: 140px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.axis-q:nth-child(1) { border-right: none; border-bottom: none; border-radius: 12px 0 0 0; }
+.axis-q:nth-child(2) { border-bottom: none; border-radius: 0 12px 0 0; }
+.axis-q:nth-child(3) { border-right: none; border-bottom: none; }
+.axis-q:nth-child(4) { border-bottom: none; }
+.axis-q:nth-child(5) { border-right: none; border-top: none; border-radius: 0 0 0 12px; }
+.axis-q:nth-child(6) { border-top: none; border-radius: 0 0 12px 0; }
+.axis-q-label { font-size: 0.78rem; font-weight: 700; margin-bottom: 4px; }
+.axis-word { font-size: 0.8rem; padding: 3px 9px; border-radius: 100px; display: inline-block; width: fit-content; }
+.axis-h-label {
+  grid-column: 2 / 4; grid-row: 2;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 14px; font-size: 0.78rem; font-weight: 700; color: var(--muted);
+  border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+  background: white; position: relative;
+}
+.axis-h-label::after {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1.5px; background: var(--border);
+}
+.axis-h-label span { background: white; padding: 0 6px; position: relative; z-index: 1; }
+.axis-v-top {
+  grid-column: 1; grid-row: 1;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 6px; writing-mode: vertical-lr;
+  font-size: 0.72rem; font-weight: 700; color: var(--muted);
+  border-right: 1px solid var(--border); position: relative;
+}
+.axis-v-top::before {
+  content: '↑'; font-size: 0.8rem; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+}
+.axis-v-bot {
+  grid-column: 1; grid-row: 3;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 6px; writing-mode: vertical-lr;
+  font-size: 0.72rem; font-weight: 700; color: var(--muted);
+  border-right: 1px solid var(--border); position: relative;
+}
+.axis-v-bot::after {
+  content: '↓'; font-size: 0.8rem; position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+}
+.axis-center {
+  grid-column: 1; grid-row: 2;
+  display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid var(--border);
+  background: white;
+}
+.axis-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+
+/* ── FREETALK ── */
+.ft-filter { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; }
+.ft-btn {
+  padding: 5px 14px; border-radius: 100px;
+  border: 1.5px solid var(--border); background: white;
+  cursor: pointer; font-family: inherit;
+  font-size: 0.82rem; font-weight: 600; color: var(--muted);
+  transition: all 0.15s;
+}
+.ft-btn.active { color: white; border-color: transparent; }
+.ft-btn.ft-all.active  { background: var(--ink); }
+.ft-btn.ft-a1.active   { background: var(--green); }
+.ft-btn.ft-a2.active   { background: var(--amber); }
+.ft-btn.ft-b1.active   { background: #E67E22; }
+.ft-btn.ft-b2.active   { background: var(--red); }
+
+.ft-item {
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; margin-bottom: 8px;
+  background: white; display: flex; gap: 10px; align-items: flex-start;
+  transition: all 0.15s;
+}
+.ft-item:hover { box-shadow: var(--shadow); }
+.ft-item.hidden { display: none; }
+.ft-q { flex: 1; }
+.ft-kr { font-size: 0.95rem; font-weight: 600; color: var(--ink); line-height: 1.5; }
+.ft-zh { font-size: 0.82rem; color: var(--muted); margin-top: 3px; }
+
+/* ── STAR ZONE (ZODIAC) ── */
+.zodiac-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 8px;
+}
+.zodiac-card {
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px; text-align: center; background: white;
+  cursor: pointer; transition: all 0.15s;
+}
+.zodiac-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--blue); }
+.zodiac-card.active { border-color: var(--blue); background: var(--blue-l); }
+.zodiac-emoji { font-size: 1.6rem; }
+.zodiac-kr { font-size: 0.85rem; font-weight: 700; margin-top: 4px; }
+.zodiac-zh { font-size: 0.75rem; color: var(--muted); }
+.zodiac-date { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+.zodiac-detail {
+  display: none; background: var(--blue-l);
+  border: 1px solid #B5D4F4; border-radius: 10px;
+  padding: 1rem; margin-top: 0.8rem;
+  animation: fadeIn 0.2s ease;
+}
+.zodiac-detail.active { display: block; }
+.zodiac-trait { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.zodiac-tag {
+  font-size: 0.8rem; padding: 3px 10px; border-radius: 100px;
+}
+
+/* ── TIMER BAR ── */
+.schedule-bar {
+  display: flex; gap: 4px; margin-bottom: 1rem;
+  border-radius: 10px; overflow: hidden;
+}
+.sched-seg {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8px 10px; font-size: 0.72rem; font-weight: 600;
+  color: white; line-height: 1.3; cursor: default;
+  min-width: 0;
+}
+.sched-seg span { opacity: 0.8; font-weight: 400; }
+.activity-grid-web {
+  display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 10px;
+}
+.activity-card-web {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1rem; background: white; box-shadow: var(--shadow);
+}
+.activity-time-web { font-size: 0.75rem; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+.activity-name-web { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+.activity-desc-web { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+.accent-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+
+/* ── INTRO TEMPLATE ── */
+.intro-box {
+  background: linear-gradient(135deg, var(--pink-l), #FFF5F9);
+  border: 2px solid var(--pink);
+  border-radius: var(--radius); padding: 1.5rem;
+  font-size: 1rem; line-height: 2;
+}
+.intro-blank {
+  display: inline-block;
+  border-bottom: 2px solid var(--pink);
+  min-width: 100px; padding: 0 4px;
+  margin: 0 4px; vertical-align: bottom;
+  color: transparent;
+}
+.intro-hint { font-size: 0.78rem; color: var(--pink-d); }
+.intro-fixed { font-weight: 600; color: var(--pink-d); }
+
+/* ── UTIL ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.tip-box {
+  background: var(--teal-l); border: 1px solid #9FE1CB;
+  border-radius: var(--radius); padding: 1rem 1.2rem;
+  font-size: 0.88rem; color: #085041; margin-bottom: 1rem;
+}
+.tip-box strong { font-weight: 700; }
+.divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+.pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.pill {
+  font-size: 0.8rem; padding: 3px 10px; border-radius: 100px;
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .mbti-grid { grid-template-columns: repeat(4,1fr); }
+  .vocab-grid { grid-template-columns: repeat(2,1fr); }
+  .match-container { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .mbti-code { font-size: 0.85rem; }
+  .mbti-kr { font-size: 0.65rem; }
+  .axis-q { padding: 10px 8px; min-height: 110px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-flag">🇰🇷</div>
+  <div class="hero-kr">한국어 모임<br><span>개성 & MBTI</span></div>
+  <div class="hero-sub">個性 & MBTI 主題互動學習單</div>
+  <div class="hero-pills">
+    <span class="hero-pill accent">A1 – B2</span>
+    <span class="hero-pill">14人</span>
+    <span class="hero-pill">3小時</span>
+    <span class="hero-pill">互動練習</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav">
+    <button class="nav-btn active" onclick="switchTab('warmup')">⏱ 暖身自介</button>
+    <button class="nav-btn" onclick="switchTab('vocab')">📖 個性單字</button>
+    <button class="nav-btn" onclick="switchTab('practice')">✏️ 連連看&填空</button>
+    <button class="nav-btn" onclick="switchTab('mbti')">💬 MBTI</button>
+    <button class="nav-btn" onclick="switchTab('zodiac')">⭐ 星座</button>
+    <button class="nav-btn" onclick="switchTab('freetalk')">🗣 Free Talk</button>
+    <button class="nav-btn" onclick="switchTab('schedule')">🎮 活動流程</button>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ══ WARMUP ══ -->
+<div class="section active" id="tab-warmup">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#FFE0EF;">⏱</div>
+    <div>
+      <div class="sec-title">暖身自我介紹</div>
+      <div class="sec-desc">用下面的模板介紹自己，找旁邊的人練習！目標時間 15 分鐘</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="intro-box">
+      <div><span class="intro-fixed">안녕하세요！</span>　만나서 반가워요. 👋</div>
+      <div>저는　<span class="intro-blank" style="min-width:80px"></span>　입니다。<span class="intro-hint">名字</span></div>
+      <div><span class="intro-blank" style="min-width:80px"></span>　입니다。<span class="intro-hint">職業</span></div>
+      <div>저는　<span class="intro-blank" style="min-width:120px"></span>　한 사람입니다。<span class="intro-hint">個性（選 1～2 個）</span></div>
+      <div style="margin-top:6px"><span class="intro-fixed">잘 부탁드립니다！🙏</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--pink)"><span style="background:var(--pink)"></span>💡 暖身必備個性詞（先選一個填入上面！）</div>
+    <div class="vocab-grid" id="warmup-vocab"></div>
+  </div>
+
+  <div class="tip-box">
+    <strong>📌 暖身小任務：</strong>介紹完後，找到和你個性相同或相反的人，記下他的名字！
+  </div>
+</div>
+
+<!-- ══ VOCAB ══ -->
+<div class="section" id="tab-vocab">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#E1F5EE;">📖</div>
+    <div>
+      <div class="sec-title">個性單字</div>
+      <div class="sec-desc">點選單字卡可以看更多說明。建議用時 30 分鐘</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--teal)"><span style="background:var(--teal)"></span>✅ 正面個性</div>
+    <div class="vocab-grid" id="pos-vocab"></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--red)"><span style="background:var(--red)"></span>❌ 負面個性</div>
+    <div class="vocab-grid" id="neg-vocab"></div>
+  </div>
+
+  <div class="tip-box">
+    <strong>💡 難度說明：</strong>
+    <span class="lv lv-a1">A1</span> 初學必學　
+    <span class="lv lv-a2">A2</span> 初級常用　
+    <span class="lv lv-b1">B1</span> 中初級　
+    <span class="lv lv-b2">B2</span> 中級進階
+  </div>
+</div>
+
+<!-- ══ PRACTICE ══ -->
+<div class="section" id="tab-practice">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#EEEDFE;">✏️</div>
+    <div>
+      <div class="sec-title">連連看 & 填空練習</div>
+      <div class="sec-desc">和旁邊的人一起完成，互相核對答案！</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--purple)"><span style="background:var(--purple)"></span>🔗 連連看①　正面個性</div>
+    <div class="match-score" id="score1">0 / 8 配對成功</div>
+    <div class="match-container" id="match1"></div>
+    <button class="match-btn" onclick="resetMatch(1)">🔄 重新開始</button>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--red)"><span style="background:var(--red)"></span>🔗 連連看②　負面個性</div>
+    <div class="match-score" id="score2">0 / 8 配對成功</div>
+    <div class="match-container" id="match2"></div>
+    <button class="match-btn" onclick="resetMatch(2)">🔄 重新開始</button>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--pink)"><span style="background:var(--pink)"></span>✏️ 填空練習　寫出「…한/은/ㄴ/는 사람」</div>
+    <div class="tip-box" style="margin-bottom:1rem">
+      <strong>規則：</strong>子音結尾 → ~은 사람　母音結尾 → ~ㄴ 사람　있다/없다 → ~는 사람<br>
+      <strong>範例：</strong>다정하다 → <strong style="color:var(--teal)">다정한 사람 ✓</strong>
+    </div>
+    <table class="fill-table">
+      <thead><tr><th>原形</th><th>中文</th><th>~ 사람</th></tr></thead>
+      <tbody id="fill-tbody"></tbody>
+    </table>
+    <button class="fill-check-btn" onclick="checkFill()">✅ 核對答案</button>
+  </div>
+</div>
+
+<!-- ══ MBTI ══ -->
+<div class="section" id="tab-mbti">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#EEEDFE;">💬</div>
+    <div>
+      <div class="sec-title">MBTI 討論</div>
+      <div class="sec-desc">點選你的 MBTI 看例句！目標時間 40 分鐘</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--purple)"><span style="background:var(--purple)"></span>點選你的 MBTI！</div>
+    <div class="mbti-grid" id="mbti-grid"></div>
+    <div class="mbti-example" id="mbti-detail"></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--purple)"><span style="background:var(--purple)"></span>📊 四維度坐標軸　填入你聯想到的性格單字！</div>
+    <div class="axis-tabs" id="axis-tabs"></div>
+    <div id="axis-content"></div>
+    <div class="tip-box" style="margin-top:1rem">
+      <strong>📌 討論任務：</strong>找到和你同個象限的人，用韓文說出一個你們共同的個性詞！
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--purple)"><span style="background:var(--purple)"></span>🔑 E/I S/N T/F J/P 常用詞 + 韓綜流行語</div>
+    <div id="dim-table"></div>
+  </div>
+</div>
+
+<!-- ══ ZODIAC ══ -->
+<div class="section" id="tab-zodiac">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#E6F1FB;">⭐</div>
+    <div>
+      <div class="sec-title">12 星座</div>
+      <div class="sec-desc">點選你的星座看個性特質！目標時間 20 分鐘</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="zodiac-grid" id="zodiac-grid"></div>
+    <div class="zodiac-detail" id="zodiac-detail"></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--blue)"><span style="background:var(--blue)"></span>💬 星座常用句型</div>
+    <div style="margin-bottom:10px">
+      <div style="background:var(--blue-l);border:1px solid #B5D4F4;border-radius:10px;padding:12px 14px;font-size:0.9rem;margin-bottom:8px">
+        <strong style="color:#185FA5">句型①</strong>　제 별자리가 ___라서 성격이 좀 <strong>___한 편이에요</strong>。<br>
+        <span style="color:var(--muted);font-size:0.82rem">因為我是___座，所以個性有點___的類型。</span>
+      </div>
+      <div style="background:var(--blue-l);border:1px solid #B5D4F4;border-radius:10px;padding:12px 14px;font-size:0.9rem">
+        <strong style="color:#185FA5">句型②</strong>　___자리는 보통 <strong>___다고 해요</strong>。<br>
+        <span style="color:var(--muted);font-size:0.82rem">聽說___座通常都___。</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FREETALK ══ -->
+<div class="section" id="tab-freetalk">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:var(--green-l);">🗣</div>
+    <div>
+      <div class="sec-title">Free Talk 題目</div>
+      <div class="sec-desc">依程度篩選題目，小組輪流回答！目標時間 55 分鐘</div>
+    </div>
+  </div>
+
+  <div class="ft-filter">
+    <button class="ft-btn ft-all active" onclick="filterFT('all',this)">全部</button>
+    <button class="ft-btn ft-a1" onclick="filterFT('a1',this)">🟢 A1</button>
+    <button class="ft-btn ft-a2" onclick="filterFT('a2',this)">🟡 A2</button>
+    <button class="ft-btn ft-b1" onclick="filterFT('b1',this)">🟠 B1</button>
+    <button class="ft-btn ft-b2" onclick="filterFT('b2',this)">🔴 B2</button>
+  </div>
+
+  <div id="ft-list"></div>
+</div>
+
+<!-- ══ SCHEDULE ══ -->
+<div class="section" id="tab-schedule">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:#E1F5EE;">🎮</div>
+    <div>
+      <div class="sec-title">活動流程 & 遊戲</div>
+      <div class="sec-desc">三小時完整流程一覽</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--teal)"><span style="background:var(--teal)"></span>⏱ 時間軸</div>
+    <div class="schedule-bar" id="sched-bar"></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--teal)"><span style="background:var(--teal)"></span>📋 各段說明</div>
+    <div class="activity-grid-web" id="activity-grid"></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <div class="card-title" style="color:var(--amber)"><span style="background:var(--amber)"></span>🎮 互動小遊戲</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="border:1px solid var(--border);border-radius:10px;padding:12px 14px;background:white">
+        <div style="font-weight:700;font-size:0.95rem;margin-bottom:4px">🕵️ 猜猜我是誰</div>
+        <div style="font-size:0.85rem;color:var(--muted)">每人說 3 個自己的個性詞，其他人猜你的 MBTI！</div>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:10px;padding:12px 14px;background:white">
+        <div style="font-weight:700;font-size:0.95rem;margin-bottom:4px">🗳️ 最像誰？投票</div>
+        <div style="font-size:0.85rem;color:var(--muted)">主持人說一個個性詞（如：털털하다），大家投票誰最符合！</div>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:10px;padding:12px 14px;background:white">
+        <div style="font-weight:700;font-size:0.95rem;margin-bottom:4px">✍️ 簽名挑戰</div>
+        <div style="font-size:0.85rem;color:var(--muted)">找到和你同 MBTI 或同星座的人，請對方用韓文寫名字簽名！</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:2rem 0 0;font-size:1.1rem;font-weight:700;color:var(--pink)">
+    즐거운 모임 되세요！ 오늘도 화이팅！ 🎉
+  </div>
+</div>
+
+</div><!-- .main -->
+
+<script>
+/* ══════════════ DATA ══════════════ */
+
+const warmupWords = [
+  {kr:'착하다',zh:'善良',lv:'a1'},{kr:'밝다',zh:'開朗',lv:'a1'},
+  {kr:'친절하다',zh:'親切',lv:'a1'},{kr:'똑똑하다',zh:'聰明',lv:'a1'},
+  {kr:'활발하다',zh:'活潑',lv:'a2'},{kr:'다정하다',zh:'溫柔體貼',lv:'a2'},
+  {kr:'성실하다',zh:'認真踏實',lv:'a2'},{kr:'차분하다',zh:'沉穩冷靜',lv:'a2'},
+];
+
+const posVocab = [
+  {kr:'착하다',zh:'善良、乖巧',lv:'a1'},
+  {kr:'밝다',zh:'開朗、陽光',lv:'a1'},
+  {kr:'친절하다',zh:'親切（行為）',lv:'a1'},
+  {kr:'똑똑하다',zh:'聰明的',lv:'a1'},
+  {kr:'활발하다',zh:'活潑',lv:'a2'},
+  {kr:'성실하다',zh:'認真踏實',lv:'a2'},
+  {kr:'꼼꼼하다',zh:'細心一絲不苟',lv:'a2'},
+  {kr:'다정하다',zh:'溫柔體貼',lv:'a2'},
+  {kr:'차분하다',zh:'沉穩冷靜',lv:'a2'},
+  {kr:'외향적이다',zh:'外向的',lv:'a2'},
+  {kr:'사교적이다',zh:'善於社交',lv:'a2'},
+  {kr:'유머러스하다',zh:'幽默的',lv:'a2'},
+  {kr:'적극적이다',zh:'積極主動',lv:'a2'},
+  {kr:'솔직하다',zh:'率真坦率',lv:'a2'},
+  {kr:'겸손하다',zh:'謙虛的',lv:'a2'},
+  {kr:'긍정적이다',zh:'積極樂觀',lv:'a2'},
+  {kr:'마음이 넓다',zh:'心胸寬大',lv:'a2'},
+  {kr:'매력적이다',zh:'很有魅力',lv:'a2'},
+  {kr:'책임감 있다',zh:'有責任感',lv:'a2'},
+  {kr:'털털하다',zh:'大剌剌不拘小節',lv:'b1'},
+  {kr:'친근하다',zh:'親切（沒距離感）',lv:'b1'},
+  {kr:'당당하다',zh:'堂堂正正',lv:'b1'},
+  {kr:'배려심이 깊다',zh:'非常體貼',lv:'b1'},
+  {kr:'이해심이 많다',zh:'善解人意',lv:'b1'},
+  {kr:'낙천적이다',zh:'樂天的',lv:'b1'},
+  {kr:'느긋하다',zh:'從容悠閒',lv:'b1'},
+  {kr:'자신감 넘치다',zh:'自信滿滿',lv:'b1'},
+  {kr:'시원시원하다',zh:'爽快不拖泥帶水',lv:'b2'},
+  {kr:'듬직하다',zh:'穩重可靠',lv:'b2'},
+  {kr:'똑 부러지다',zh:'精明能幹',lv:'b2'},
+];
+
+const negVocab = [
+  {kr:'게으르다',zh:'懶惰的',lv:'a1'},
+  {kr:'이기적이다',zh:'自私的',lv:'a2'},
+  {kr:'차갑다/냉정하다',zh:'冷酷冷血',lv:'a2'},
+  {kr:'무례하다',zh:'無禮沒禮貌',lv:'a2'},
+  {kr:'고집이 세다',zh:'固執牛脾氣',lv:'a2'},
+  {kr:'소심하다',zh:'膽小小心眼',lv:'a2'},
+  {kr:'무책임하다',zh:'不負責任',lv:'a2'},
+  {kr:'의심이 많다',zh:'多疑疑心病重',lv:'a2'},
+  {kr:'성격이 급하다',zh:'性子急',lv:'a2'},
+  {kr:'내성적이다',zh:'內向的',lv:'a2'},
+  {kr:'까칠하다',zh:'難相處龜毛',lv:'b1'},
+  {kr:'신경질적이다',zh:'神經質歇斯底里',lv:'b1'},
+  {kr:'까다롭다',zh:'挑剔毛很多',lv:'b1'},
+  {kr:'무뚝뚝하다',zh:'生硬冷冰冰',lv:'b1'},
+  {kr:'거만하다',zh:'傲慢自大',lv:'b1'},
+  {kr:'뻔뻔하다',zh:'厚臉皮不要臉',lv:'b1'},
+  {kr:'가식적이다',zh:'虛偽做作',lv:'b1'},
+  {kr:'속이 좁다',zh:'心胸狹隘愛計較',lv:'b1'},
+  {kr:'질투심이 많다',zh:'嫉妒心強',lv:'b1'},
+  {kr:'철이 없다',zh:'不成熟幼稚',lv:'b1'},
+  {kr:'잔소리가 많다',zh:'愛碎碎念嘮叨',lv:'b1'},
+  {kr:'눈치가 없다',zh:'沒眼色',lv:'b1'},
+  {kr:'답답하다',zh:'木訥死腦筋',lv:'b1'},
+  {kr:'낯을 가리다',zh:'怕生慢熟',lv:'b1'},
+  {kr:'우유부단하다',zh:'優柔寡斷沒主見',lv:'b2'},
+  {kr:'욱하다',zh:'動不動就爆發',lv:'b2'},
+  {kr:'다혈질이다',zh:'暴脾氣易怒',lv:'b2'},
+  {kr:'음침하다',zh:'陰沉城府深',lv:'b2'},
+  {kr:'덤벙대다',zh:'冒冒失失的',lv:'b2'},
+  {kr:'엉뚱하다',zh:'無厘頭（偏可愛中性）',lv:'b1'},
+];
+
+const matchData1 = [
+  {kr:'착하다',zh:'善良、乖巧'},
+  {kr:'꼼꼼하다',zh:'細心一絲不苟'},
+  {kr:'털털하다',zh:'大剌剌不拘小節'},
+  {kr:'솔직하다',zh:'率真坦率'},
+  {kr:'느긋하다',zh:'從容不慌不忙'},
+  {kr:'당당하다',zh:'堂堂正正'},
+  {kr:'배려심이 깊다',zh:'非常體貼懂得為他人著想'},
+  {kr:'자신감 넘치다',zh:'自信滿滿'},
+];
+const matchData2 = [
+  {kr:'게으르다',zh:'懶惰的'},
+  {kr:'까칠하다',zh:'難相處龜毛'},
+  {kr:'뻔뻔하다',zh:'厚臉皮不要臉'},
+  {kr:'우유부단하다',zh:'優柔寡斷沒主見'},
+  {kr:'잔소리가 많다',zh:'愛碎碎念嘮叨'},
+  {kr:'눈치가 없다',zh:'沒眼色'},
+  {kr:'가식적이다',zh:'虛偽做作'},
+  {kr:'고집이 세다',zh:'固執牛脾氣'},
+];
+
+const fillData = [
+  {kr:'마음이 넓다',zh:'心胸寬大', ans:'마음이 넓은 사람'},
+  {kr:'활발하다',zh:'活潑', ans:'활발한 사람'},
+  {kr:'꼼꼼하다',zh:'細心', ans:'꼼꼼한 사람'},
+  {kr:'책임감 있다',zh:'有責任感', ans:'책임감 있는 사람'},
+  {kr:'차분하다',zh:'沉穩冷靜', ans:'차분한 사람'},
+  {kr:'솔직하다',zh:'率真', ans:'솔직한 사람'},
+  {kr:'느긋하다',zh:'從容', ans:'느긋한 사람'},
+  {kr:'사교적이다',zh:'善於社交', ans:'사교적인 사람'},
+];
+
+const mbtiData = [
+  {code:'ESTJ',kr:'엣티제',ex:'저는 엣티제라 계획대로 안 움직이고 게으름 피우는 걸 보면 답답해요。',zh:'因為我是ESTJ，所以只要看到有人不按計畫在摸魚，我就會全身不對勁。'},
+  {code:'ESFJ',kr:'엣프제',ex:'저는 엣프제라 리액션 장인이라는 소리를 자주 들어요。',zh:'因為我是ESFJ，所以常常被稱讚是「反應王/最棒的捧場大師」。'},
+  {code:'ESTP',kr:'엣팁',ex:'저는 엣팁이라 일단 저지르고 보는 편이에요。',zh:'因為我是ESTP，所以屬於那種「先做再說/活在當下」的行動派。'},
+  {code:'ESFP',kr:'엣프피',ex:'저는 엣프피라 주목받는 거랑 노는 게 세상에서 제일 좋아요。',zh:'因為我是ESFP，所以覺得成為焦點和出門玩樂是世界上最棒的事。'},
+  {code:'ENTJ',kr:'엔티제',ex:'저는 엔티제라 뭐든 제가 주도해야 직성이 풀려요。',zh:'因為我是ENTJ，所以什麼事都要由我來主導心裡才痛快。'},
+  {code:'ENFJ',kr:'엔프제',ex:'저는 엔프제라 주변 사람들을 행복하게 만들어주고 싶어요。',zh:'因為我是ENFJ，所以總是想讓身邊的每個人都感到幸福。'},
+  {code:'ENTP',kr:'엔팁',ex:'저는 엔팁이라 아이디어가 끊임없이 떠올라요。',zh:'因為我是ENTP，所以腦中總是蹦出各種點子。'},
+  {code:'ENFP',kr:'엔프피',ex:'저는 엔프피라 사람 만나는 게 제일 즐거워요。',zh:'因為我是ENFP，所以見到人是最開心的事。'},
+  {code:'ISTJ',kr:'잇티제',ex:'저는 잇티제라 계획 없이는 못 살아요。',zh:'因為我是ISTJ，所以沒有計劃就沒辦法生活。'},
+  {code:'ISFJ',kr:'잇프제',ex:'저는 잇프제라 주변 사람들 챙기느라 바빠요。',zh:'因為我是ISFJ，所以總是忙著照顧身邊的人。'},
+  {code:'ISTP',kr:'잇팁',ex:'저는 잇팁이라 남들 일에 별로 관심이 없어요。',zh:'因為我是ISTP，所以對別人的事基本上不怎麼關心。'},
+  {code:'ISFP',kr:'잇프피',ex:'저는 잇프피라 침대랑 한 몸으로 지낼 때가 제일 행복해요。',zh:'因為我是ISFP，所以跟床融為一體的時候是最幸福的。'},
+  {code:'INTJ',kr:'인티제',ex:'저는 인티제라 매사에 효율성을 엄청 따져요。',zh:'因為我是INTJ，所以凡事都超級講求效率。'},
+  {code:'INFJ',kr:'인프제',ex:'저는 인프제라 고민쟁이예요。',zh:'因為我是INFJ，所以我超容易擔心來擔心去。'},
+  {code:'INTP',kr:'인팁',ex:'저는 인팁이라 생각만 하다가 끝날 때가 많아요。',zh:'因為我是INTP，所以常常只是光是想而不行動。'},
+  {code:'INFP',kr:'인프피',ex:'저는 인프피라 밤마다 감수성이 대폭발해요。',zh:'因為我是INFP，所以每到深夜感性就會大爆發。'},
+];
+
+const axisDims = [
+  { key:'EI', label:'E / I', hPos:'E 外向', hNeg:'I 內向', vPos:'활발하다（活潑）', vNeg:'차분하다（沉穩）',
+    quadrants:[
+      {label:'E 外向 × 活潑', color:'pink', words:['활발하다（活潑）','텐션이 높다（嗨）','인싸（社交達人）']},
+      {label:'I 內向 × 活潑', color:'blue', words:['차분하다（沉穩）','조용하다（安靜）']},
+      {label:'E 外向 × 沉穩', color:'teal', words:['사교적이다（善社交）','친근하다（無距離感）']},
+      {label:'I 內向 × 沉穩', color:'purple', words:['낯을 가리다（怕生）','집돌이/집순이（宅）']},
+    ]
+  },
+  { key:'SN', label:'S / N', hPos:'S 現實', hNeg:'N 直覺', vPos:'구체적이다（具體）', vNeg:'상상력이 풍부하다（想像）',
+    quadrants:[
+      {label:'S 現實 × 具體', color:'amber', words:['현실적이다（務實）','꼼꼼하다（細心）']},
+      {label:'N 直覺 × 具體', color:'blue', words:['창의적이다（創意）','분석적이다（分析）']},
+      {label:'S 現實 × 想像', color:'teal', words:['현실파（現實派）','성실하다（踏實）']},
+      {label:'N 直覺 × 想像', color:'purple', words:['엉뚱하다（無厘頭）','과몰입러（過度投入）']},
+    ]
+  },
+  { key:'TF', label:'T / F', hPos:'T 思考', hNeg:'F 情感', vPos:'이성적이다（理性）', vNeg:'감성적이다（感性）',
+    quadrants:[
+      {label:'T 思考 × 理性', color:'blue', words:['이성적이다（理性）','팩폭러（事實暴擊）']},
+      {label:'F 情感 × 理性', color:'teal', words:['공감 능력이 좋다（同理心）','차분하다（沉穩）']},
+      {label:'T 思考 × 感性', color:'amber', words:['솔직하다（率真）','직설적이다（直接）']},
+      {label:'F 情感 × 感性', color:'pink', words:['감성적이다（感性）','공감 요정（共感妖精）']},
+    ]
+  },
+  { key:'JP', label:'J / P', hPos:'J 計畫', hNeg:'P 感知', vPos:'철저하다（嚴謹）', vNeg:'자유롭다（自由）',
+    quadrants:[
+      {label:'J 計畫 × 嚴謹', color:'teal', words:['계획적이다（計畫）','계획왕（計畫王）']},
+      {label:'P 感知 × 嚴謹', color:'blue', words:['적극적이다（積極）','융통성이 있다（靈活）']},
+      {label:'J 計畫 × 自由', color:'amber', words:['성실하다（踏實）','책임감 있다（有責任感）']},
+      {label:'P 感知 × 自由', color:'purple', words:['즉흥적이다（即興）','귀차니즘（懶惰主義）']},
+    ]
+  },
+];
+
+const dimRows = [
+  {type:'E（外向）', kr:'외향적이다／활발하다／사교적이다', zh:'外向、活潑、善交際', slang:'텐션이 높다（嗨） / 인싸（社交達人） / 핵인싸（超級社交達人）'},
+  {type:'I（內向）', kr:'내성적이다／조용하다／낯을 가리다', zh:'內向、安靜、怕生', slang:'기 빨려하다（精力被吸乾） / 집돌이·집순이（宅男宅女）'},
+  {type:'S（現實）', kr:'현실적이다／구체적이다', zh:'現實、具體', slang:'현실파（現實派） / 대문자 S（大寫S＝極度現實不浪漫）'},
+  {type:'N（直覺）', kr:'상상력이 풍부하다／엉뚱하다', zh:'想像力豐富、無厘頭', slang:'과몰입러（過度投入者） / 망상주의자（妄想主義者）'},
+  {type:'T（思考）', kr:'이성적이다／냉정하다', zh:'理性、冷靜', slang:'너 T야?（你是T嗎？＝你怎麼這麼無情） / 팩폭러（事實暴擊者）'},
+  {type:'F（情感）', kr:'감성적이다／공감 능력이 좋다', zh:'感性、有同理心', slang:'공감 요정（共感妖精） / 리액션 부자（反應富豪＝超會捧場）'},
+  {type:'J（計畫）', kr:'계획적이다／철저하다', zh:'計畫性、嚴謹', slang:'계획왕（計畫王） / 메모 중독（備忘錄中毒）'},
+  {type:'P（感知）', kr:'즉흥적이다／자유롭다', zh:'即興、自由隨性', slang:'자유로운 영혼（自由的靈魂） / 귀차니즘（懶惰主義）'},
+];
+
+const zodiacData = [
+  {emoji:'♈',kr:'양자리',zh:'牡羊座',date:'03/21~04/19',pos:['활발하다（活潑）','적극적이다（積極）'],neg:['성격이 급하다（性子急）']},
+  {emoji:'♉',kr:'황소자리',zh:'金牛座',date:'04/20~05/20',pos:['신중하다（謹慎）','성실하다（踏實）'],neg:['고집이 세다（固執）']},
+  {emoji:'♊',kr:'쌍둥이자리',zh:'雙子座',date:'05/21~06/21',pos:['사교적이다（善社交）','유머러스하다（幽默）'],neg:['변덕스럽다（善變）']},
+  {emoji:'♋',kr:'게자리',zh:'巨蟹座',date:'06/22~07/22',pos:['다정하다（溫柔）','감수성이 풍부하다（感性）'],neg:['생각이 많다（想太多）']},
+  {emoji:'♌',kr:'사자자리',zh:'獅子座',date:'07/23~08/22',pos:['활발하다（活潑）','자신감 넘치다（自信）'],neg:['고집이 세다（固執）']},
+  {emoji:'♍',kr:'처녀자리',zh:'處女座',date:'08/23~09/22',pos:['꼼꼼하다（細心）','성실하다（踏實）'],neg:['생각이 많다（想太多）']},
+  {emoji:'♎',kr:'천칭자리',zh:'天秤座',date:'09/23~10/23',pos:['사교적이다（善社交）','공평하다（公平）'],neg:['변덕스럽다（善變）','우유부단하다（優柔寡斷）']},
+  {emoji:'♏',kr:'전갈자리',zh:'天蠍座',date:'10/24~11/22',pos:['독립적이다（獨立）','집중력이 강하다（專注）'],neg:['포커페이스다（撲克臉）','의심이 많다（多疑）']},
+  {emoji:'♐',kr:'사수자리',zh:'射手座',date:'11/23~12/21',pos:['자유롭다（崇尚自由）','낙천적이다（樂天）'],neg:['성격이 급하다（性子急）']},
+  {emoji:'♑',kr:'염소자리',zh:'摩羯座',date:'12/22~01/19',pos:['신중하다（謹慎）','꼼꼼하다（細心）'],neg:['고집이 세다（固執）']},
+  {emoji:'♒',kr:'물병자리',zh:'水瓶座',date:'01/20~02/18',pos:['독립적이다（獨立）','자유롭다（自由）'],neg:['개인주의적이다（個人主義）']},
+  {emoji:'♓',kr:'물고기자리',zh:'雙魚座',date:'02/19~03/20',pos:['다정하다（溫柔）','감수성이 풍부하다（感性）'],neg:['생각이 많다（想太多）','우유부단하다（優柔寡斷）']},
+];
+
+const ftData = [
+  // A1
+  {lv:'a1',kr:'여러분의 MBTI는 뭐예요?',zh:'你的MBTI是什麼？'},
+  {lv:'a1',kr:'성격이 어때요? 착해요, 활발해요?',zh:'你個性怎麼樣？善良？活潑？'},
+  {lv:'a1',kr:'친구한테 어떤 사람이에요?',zh:'在朋友眼中你是什麼樣的人？'},
+  {lv:'a1',kr:'가족 중에 누가 제일 활발해요?',zh:'家人裡誰最活潑？'},
+  {lv:'a1',kr:'지금 옆에 있는 사람 성격이 어떤 것 같아요?',zh:'你覺得旁邊的人個性怎麼樣？'},
+  {lv:'a1',kr:'제일 좋아하는 성격은 뭐예요?',zh:'你最喜歡哪種個性？'},
+  {lv:'a1',kr:'별자리가 뭐예요? 성격이랑 맞아요?',zh:'你是什麼星座？符合你的個性嗎？'},
+  // A2
+  {lv:'a2',kr:'자신의 성격 중에 가장 마음에 드는 점이 뭐예요?',zh:'自己個性中最喜歡的一點是什麼？'},
+  {lv:'a2',kr:'고치고 싶은 성격이 있어요?',zh:'有想改掉的個性嗎？'},
+  {lv:'a2',kr:'MBTI 결과랑 실제 성격이 비슷해요?',zh:'MBTI結果和實際個性相符嗎？'},
+  {lv:'a2',kr:'친구한테 이런 성격이 있으면 싫어요? 왜요?',zh:'朋友有哪種個性你會不喜歡？'},
+  {lv:'a2',kr:'제일 친한 친구는 어떤 성격이에요?',zh:'你最要好的朋友是什麼個性？'},
+  {lv:'a2',kr:'스트레스받을 때 성격이 달라져요?',zh:'壓力大的時候個性會改變嗎？'},
+  {lv:'a2',kr:'가족 중에 누가 제일 나랑 성격이 달라요?',zh:'家人裡誰和你個性最不一樣？'},
+  // B1
+  {lv:'b1',kr:'나랑 성격이 비슷한 사람이랑 친해지는 게 좋아요, 아니면 달라도 괜찮아요?',zh:'你喜歡和個性相似的人做朋友，還是不同也沒關係？'},
+  {lv:'b1',kr:'지금 MBTI 유행에 대해서 어떻게 생각해요?',zh:'你怎麼看現在MBTI流行的現象？'},
+  {lv:'b1',kr:'자신의 MBTI가 마음에 들어요? 바꾸고 싶은 부분이 있어요?',zh:'你喜歡自己的MBTI嗎？有想改變的部分嗎？'},
+  {lv:'b1',kr:'주변에 별자리 성격이랑 딱 맞는 사람 있어요?',zh:'身邊有個性和星座描述完全符合的人嗎？'},
+  {lv:'b1',kr:'E와 I 중 어느 쪽이 사회생활에서 더 유리하다고 생각해요?',zh:'你覺得E和I哪種個性在社會生活中更有優勢？'},
+  {lv:'b1',kr:'당신 주변에서 제일 「T」 같은 사람은 누구예요?',zh:'你身邊最「T」的人是誰？說個例子！'},
+  {lv:'b1',kr:'스트레스받을 때 E와 I는 어떻게 다르게 반응해요?',zh:'壓力大時，E和I的反應有什麼不同？'},
+  {lv:'b1',kr:'처음 만나는 사람한테 MBTI를 물어보는 게 괜찮다고 생각해요?',zh:'你覺得第一次見面就問MBTI合適嗎？'},
+  // B2
+  {lv:'b2',kr:'MBTI를 믿어요? 왜 믿어요, 또는 왜 안 믿어요?',zh:'你相信MBTI嗎？為什麼相信或不相信？'},
+  {lv:'b2',kr:'성격은 타고나는 걸까요, 아니면 환경에 따라 만들어지는 걸까요?',zh:'個性是天生的，還是後天環境塑造的？'},
+  {lv:'b2',kr:'성격이 나쁜 사람도 바뀔 수 있다고 생각해요?',zh:'你覺得個性不好的人也能改變嗎？'},
+  {lv:'b2',kr:'외향적인 사람이 사회에서 더 유리하다고 생각해요?',zh:'你覺得外向的人在社會上更有優勢嗎？'},
+  {lv:'b2',kr:'MBTI나 별자리로 사람을 판단하는 게 괜찮다고 생각해요?',zh:'用MBTI或星座來判斷一個人，你覺得OK嗎？'},
+  {lv:'b2',kr:'지금의 나와 10년 후의 나, 성격이 달라져 있을 것 같아요?',zh:'現在的我和十年後的我，個性會不一樣嗎？'},
+  {lv:'b2',kr:'한국에서 MBTI가 유행하는 이유가 뭐라고 생각해요?',zh:'你覺得MBTI在韓國流行的原因是什麼？'},
+  {lv:'b2',kr:'성격과 직업 선택, 관계가 있다고 생각해요?',zh:'你覺得個性和職業選擇有關係嗎？'},
+];
+
+const scheduleItems = [
+  {time:'0:00–0:15',name:'暖身自介',color:'#FF6B9D',desc:'用自我介紹模板找人練習，互相認識'},
+  {time:'0:15–0:45',name:'單字學習',color:'#F4845F',desc:'分組朗讀正負面個性詞，猜意思'},
+  {time:'0:45–1:25',name:'MBTI 討論',color:'#9B72CF',desc:'找自己的例句、坐標軸互動'},
+  {time:'1:25–1:45',name:'星座補充',color:'#5B9BD5',desc:'點星座卡片、句型練習'},
+  {time:'1:45–2:40',name:'Free Talk',color:'#27AE60',desc:'依程度分組討論，輪流回答'},
+  {time:'2:40–3:00',name:'總結分享',color:'#E0A020',desc:'每組說今天最印象深刻的一句'},
+];
+
+/* ══════════════ RENDER FUNCTIONS ══════════════ */
+
+const lvColors = {a1:'a1',a2:'a2',b1:'b1',b2:'b2'};
+
+function renderVocabGrid(el, data) {
+  el.innerHTML = data.map(v=>`
+    <div class="vocab-item">
+      <span class="vocab-lv"><span class="lv lv-${v.lv}">${v.lv.toUpperCase()}</span></span>
+      <div class="vocab-kr">${v.kr}</div>
+      <div class="vocab-zh">${v.zh}</div>
+    </div>
+  `).join('');
+}
+
+// Matching game
+let matchState = {};
+
+function shuffleArr(arr) {
+  const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;
+}
+
+function initMatch(n, data) {
+  const rights = shuffleArr(data.map(d=>d.zh));
+  matchState[n] = { data, rights, sel: null, correct: 0, done: new Set() };
+  renderMatch(n);
+}
+
+function renderMatch(n) {
+  const s = matchState[n];
+  const el = document.getElementById('match'+n);
+  el.innerHTML = `
+    <div class="match-col">${s.data.map((d,i)=>`
+      <div class="match-item ${s.done.has('L'+i)?'correct disabled':''}" data-side="L" data-idx="${i}" onclick="clickMatch(${n},this)">${d.kr}</div>
+    `).join('')}</div>
+    <div class="match-col">${s.rights.map((r,i)=>`
+      <div class="match-item ${s.done.has('R'+r)?'correct disabled':''}" data-side="R" data-val="${r}" onclick="clickMatch(${n},this)">${r}</div>
+    `).join('')}</div>
+  `;
+  document.getElementById('score'+n).textContent = `${s.correct} / ${s.data.length} 配對成功`;
+}
+
+function clickMatch(n, el) {
+  const s = matchState[n];
+  if(el.classList.contains('disabled')) return;
+  const side = el.dataset.side;
+  if(!s.sel) {
+    s.sel = el; el.classList.add('selected'); return;
+  }
+  if(s.sel === el) { el.classList.remove('selected'); s.sel=null; return; }
+  if(s.sel.dataset.side === side) {
+    s.sel.classList.remove('selected'); s.sel=el; el.classList.add('selected'); return;
+  }
+  // check pair
+  let krIdx, zh;
+  if(side==='R') { krIdx=parseInt(s.sel.dataset.idx); zh=el.dataset.val; }
+  else { krIdx=parseInt(el.dataset.idx); zh=s.sel.dataset.val; }
+  const correct = s.data[krIdx].zh === zh;
+  if(correct) {
+    s.sel.classList.remove('selected'); s.sel.classList.add('correct','disabled');
+    el.classList.add('correct','disabled');
+    s.done.add('L'+krIdx); s.done.add('R'+zh);
+    s.correct++; s.sel=null;
+    document.getElementById('score'+n).textContent = `${s.correct} / ${s.data.length} 配對成功`;
+  } else {
+    s.sel.classList.remove('selected'); s.sel.classList.add('wrong');
+    el.classList.add('wrong');
+    setTimeout(()=>{ s.sel.classList.remove('wrong'); el.classList.remove('wrong'); s.sel=null; },700);
+  }
+}
+
+function resetMatch(n) {
+  initMatch(n, matchState[n].data);
+}
+
+function renderFillTable() {
+  const tb = document.getElementById('fill-tbody');
+  tb.innerHTML = fillData.map((d,i)=>`
+    <tr>
+      <td>${d.kr}</td>
+      <td style="color:var(--muted)">${d.zh}</td>
+      <td><input class="fill-input" id="fill-${i}" placeholder="＿＿＿ 사람"></td>
+    </tr>
+  `).join('');
+}
+
+function checkFill() {
+  fillData.forEach((d,i)=>{
+    const inp = document.getElementById('fill-'+i);
+    const val = inp.value.trim();
+    inp.classList.remove('correct','wrong');
+    if(!val) return;
+    if(val===d.ans || val===d.ans.replace(' ','')) inp.classList.add('correct');
+    else inp.classList.add('wrong');
+  });
+}
+
+function renderMbtiGrid() {
+  const g = document.getElementById('mbti-grid');
+  g.innerHTML = mbtiData.map((m,i)=>`
+    <div class="mbti-tile" onclick="showMbti(${i})">
+      <div class="mbti-code">${m.code}</div>
+      <div class="mbti-kr">${m.kr}</div>
+    </div>
+  `).join('');
+}
+
+function showMbti(i) {
+  document.querySelectorAll('.mbti-tile').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.mbti-tile')[i].classList.add('active');
+  const d = document.getElementById('mbti-detail');
+  d.classList.add('active');
+  d.innerHTML = `
+    <div class="mbti-ex-kr">${mbtiData[i].ex}</div>
+    <div class="mbti-ex-zh">${mbtiData[i].zh}</div>
+  `;
+}
+
+let currentAxis = 0;
+const axisColors = {
+  pink:  {bg:'#FFF5F9',text:'#72243E',tag:'#F4C0D1',tagTxt:'#72243E'},
+  blue:  {bg:'#EBF4FD',text:'#0C447C',tag:'#B5D4F4',tagTxt:'#0C447C'},
+  teal:  {bg:'#E6F7F1',text:'#085041',tag:'#9FE1CB',tagTxt:'#085041'},
+  purple:{bg:'#EEEDFE',text:'#3C3489',tag:'#CECBF6',tagTxt:'#3C3489'},
+  amber: {bg:'#FEF6E4',text:'#633806',tag:'#FAC775',tagTxt:'#633806'},
+};
+
+function renderAxisTabs() {
+  const tabs = document.getElementById('axis-tabs');
+  tabs.innerHTML = axisDims.map((d,i)=>`
+    <button class="axis-tab ${i===0?'active':''}" onclick="switchAxis(${i},this)">${d.label}</button>
+  `).join('');
+  renderAxis(0);
+}
+
+function switchAxis(i, btn) {
+  document.querySelectorAll('.axis-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  currentAxis = i;
+  renderAxis(i);
+}
+
+function renderAxis(i) {
+  const d = axisDims[i];
+  const [TL,TR,BL,BR] = d.quadrants;
+  const el = document.getElementById('axis-content');
+
+  function qHtml(q) {
+    const c = axisColors[q.color];
+    const words = q.words.map(w=>`<span class="axis-word" style="background:${c.tag};color:${c.tagTxt}">${w}</span>`).join('');
+    return `<div class="axis-q" style="background:${c.bg}">
+      <div class="axis-q-label" style="color:${c.text}">${q.label}</div>
+      <div class="pill-row">${words}</div>
+    </div>`;
+  }
+
+  el.innerHTML = `
+    <div class="axis-wrap">
+      <div class="axis-v-top" style="writing-mode:vertical-lr;transform:rotate(180deg);font-size:0.68rem;font-weight:700;color:var(--muted);border-right:1px solid var(--border);display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;position:relative;">
+        <span style="position:absolute;top:8px;left:50%;transform:translateX(-50%)">↑</span>
+        ${d.vPos.split('（')[0]}
+      </div>
+      ${qHtml(TL)}
+      ${qHtml(TR)}
+      <div style="grid-column:1;grid-row:2;border-right:1px solid var(--border);background:white;display:flex;align-items:center;justify-content:center;">
+        <div class="axis-dot"></div>
+      </div>
+      <div class="axis-h-label">
+        <span>← ${d.hNeg}</span>
+        <span>${d.hPos} →</span>
+      </div>
+      <div style="grid-column:1;grid-row:3;border-right:1px solid var(--border);background:white;display:flex;align-items:flex-start;justify-content:center;padding-top:6px;font-size:0.68rem;font-weight:700;color:var(--muted);writing-mode:vertical-lr;transform:rotate(180deg);position:relative;">
+        ${d.vNeg.split('（')[0]}
+        <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%)">↓</span>
+      </div>
+      ${qHtml(BL)}
+      ${qHtml(BR)}
+    </div>
+  `;
+}
+
+function renderDimTable() {
+  const el = document.getElementById('dim-table');
+  el.innerHTML = `<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+    <thead><tr>
+      <th style="padding:8px 12px;text-align:left;border-bottom:2px solid var(--border);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--muted)">類型</th>
+      <th style="padding:8px 12px;text-align:left;border-bottom:2px solid var(--border);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--muted)">韓文</th>
+      <th style="padding:8px 12px;text-align:left;border-bottom:2px solid var(--border);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--muted)">中文</th>
+      <th style="padding:8px 12px;text-align:left;border-bottom:2px solid var(--border);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--muted)">韓綜流行語（中文）</th>
+    </tr></thead>
+    <tbody>${dimRows.map((r,i)=>`
+      <tr style="background:${i%2===0?'white':'var(--bg)'}">
+        <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-weight:700">${r.type}</td>
+        <td style="padding:10px 12px;border-bottom:1px solid var(--border)">${r.kr}</td>
+        <td style="padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted)">${r.zh}</td>
+        <td style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:0.8rem">${r.slang}</td>
+      </tr>
+    `).join('')}</tbody>
+  </table></div>`;
+}
+
+function renderZodiac() {
+  const g = document.getElementById('zodiac-grid');
+  g.innerHTML = zodiacData.map((z,i)=>`
+    <div class="zodiac-card" onclick="showZodiac(${i})">
+      <div class="zodiac-emoji">${z.emoji}</div>
+      <div class="zodiac-kr">${z.kr}</div>
+      <div class="zodiac-zh">${z.zh}</div>
+      <div class="zodiac-date">${z.date}</div>
+    </div>
+  `).join('');
+}
+
+function showZodiac(i) {
+  document.querySelectorAll('.zodiac-card').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.zodiac-card')[i].classList.add('active');
+  const z = zodiacData[i];
+  const d = document.getElementById('zodiac-detail');
+  d.classList.add('active');
+  d.innerHTML = `
+    <div style="font-weight:700;font-size:1.05rem;color:#185FA5">${z.emoji} ${z.zh}（${z.kr}）</div>
+    <div style="margin-top:8px;font-size:0.85rem;color:var(--muted);font-weight:600">✅ 正面特質</div>
+    <div class="zodiac-trait">${z.pos.map(p=>`<span class="zodiac-tag" style="background:var(--teal-l);color:#085041">${p}</span>`).join('')}</div>
+    <div style="margin-top:8px;font-size:0.85rem;color:var(--muted);font-weight:600">⚠️ 刻板印象</div>
+    <div class="zodiac-trait">${z.neg.map(n=>`<span class="zodiac-tag" style="background:var(--red-l);color:#991B1B">${n}</span>`).join('')}</div>
+    <div style="margin-top:12px;font-size:0.88rem;background:white;border-radius:8px;padding:10px 12px;border:1px solid #B5D4F4">
+      <strong style="color:#185FA5">說說看：</strong>제 별자리가 ${z.kr.replace('자리','')}자리라서 성격이 좀 <strong>${z.pos[0].split('（')[0]}한 편이에요</strong>。
+    </div>
+  `;
+}
+
+function renderFT() {
+  const el = document.getElementById('ft-list');
+  el.innerHTML = ftData.map((f,i)=>`
+    <div class="ft-item ft-item-${f.lv}" data-lv="${f.lv}">
+      <span class="lv lv-${f.lv}">${f.lv.toUpperCase()}</span>
+      <div class="ft-q">
+        <div class="ft-kr">${f.kr}</div>
+        <div class="ft-zh">${f.zh}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterFT(lv, btn) {
+  document.querySelectorAll('.ft-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.ft-item').forEach(item=>{
+    item.classList.toggle('hidden', lv!=='all' && item.dataset.lv!==lv);
+  });
+}
+
+function renderSchedule() {
+  const bar = document.getElementById('sched-bar');
+  const total = 180;
+  const mins = [15,30,40,20,55,20];
+  bar.innerHTML = scheduleItems.map((s,i)=>`
+    <div class="sched-seg" style="background:${s.color};flex:${mins[i]}">
+      <div>${s.name}</div>
+      <span>${s.time}</span>
+    </div>
+  `).join('');
+
+  const ag = document.getElementById('activity-grid');
+  ag.innerHTML = scheduleItems.map(s=>`
+    <div class="activity-card-web">
+      <div class="activity-time-web">
+        <span class="accent-dot" style="background:${s.color}"></span>${s.time}
+      </div>
+      <div class="activity-name-web" style="color:${s.color}">${s.name}</div>
+      <div class="activity-desc-web">${s.desc}</div>
+    </div>
+  `).join('');
+}
+
+/* ══════════════ TAB SWITCHING ══════════════ */
+function switchTab(id) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ══════════════ INIT ══════════════ */
+renderVocabGrid(document.getElementById('warmup-vocab'), warmupWords);
+renderVocabGrid(document.getElementById('pos-vocab'), posVocab);
+renderVocabGrid(document.getElementById('neg-vocab'), negVocab);
+initMatch(1, matchData1);
+initMatch(2, matchData2);
+renderFillTable();
+renderMbtiGrid();
+renderAxisTabs();
+renderDimTable();
+renderZodiac();
+renderFT();
+renderSchedule();
+</script>
+</body>
+</html>
