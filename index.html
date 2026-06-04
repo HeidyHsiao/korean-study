@@ -1106,9 +1106,9 @@ function renderAxis(i) {
 
   el.innerHTML = `
     <div class="axis-wrap">
-      <div class="axis-v-top" style="writing-mode:vertical-lr;transform:rotate(180deg);font-size:0.68rem;font-weight:700;color:var(--muted);border-right:1px solid var(--border);display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;position:relative;">
-        <span style="position:absolute;top:8px;left:50%;transform:translateX(-50%)">↑</span>
-        ${d.vPos.split('（')[0]}
+      <div style="grid-column:1;grid-row:1;border-right:1px solid var(--border);background:white;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:8px;gap:4px;">
+        <span style="font-size:0.75rem">↑</span>
+        <span style="writing-mode:vertical-rl;font-size:0.68rem;font-weight:700;color:var(--muted);letter-spacing:0.05em;">${d.vPos.split('（')[0]}</span>
       </div>
       ${qHtml(TL)}
       ${qHtml(TR)}
@@ -1119,9 +1119,9 @@ function renderAxis(i) {
         <span>← ${d.hNeg}</span>
         <span>${d.hPos} →</span>
       </div>
-      <div style="grid-column:1;grid-row:3;border-right:1px solid var(--border);background:white;display:flex;align-items:flex-start;justify-content:center;padding-top:6px;font-size:0.68rem;font-weight:700;color:var(--muted);writing-mode:vertical-lr;transform:rotate(180deg);position:relative;">
-        ${d.vNeg.split('（')[0]}
-        <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%)">↓</span>
+      <div style="grid-column:1;grid-row:3;border-right:1px solid var(--border);background:white;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:8px;gap:4px;">
+        <span style="writing-mode:vertical-rl;font-size:0.68rem;font-weight:700;color:var(--muted);letter-spacing:0.05em;">${d.vNeg.split('（')[0]}</span>
+        <span style="font-size:0.75rem">↓</span>
       </div>
       ${qHtml(BL)}
       ${qHtml(BR)}
